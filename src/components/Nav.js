@@ -3,6 +3,7 @@ import "./Nav.css";
 
 export default function Nav() {
     const [show, setShow] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
 
     useEffect(() => {
       window.addEventListener("scroll", () => {
@@ -21,6 +22,10 @@ export default function Nav() {
       };
     }, [])
 
+    const handleChange = ()=> {
+
+    }
+
 
   return (
     <nav className={`nav ${ show && "nav_black" } `}>
@@ -30,6 +35,13 @@ export default function Nav() {
       className='nav__logo'
       onClick={() => window.location.reload()}
       />
+
+      <input value={searchValue} onChange={handleChange}
+        className="nav__input"
+        type="text"
+        placeholder="Search for your favorite movies." 
+      />
+
       <img
         alt="User logged"
         src="http://purekorea1.dothome.co.kr/Project/img/logged.png"
